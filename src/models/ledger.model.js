@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const ledgerSchema = new mongoose.Schema({
     account: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "accountModel",
+        ref: "account",
         required: [true, "ledger must be associated with an account"],
         index: true,
         immutable: true //cant be modified once created
@@ -15,7 +15,7 @@ const ledgerSchema = new mongoose.Schema({
     },
     transaction: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "transactionModel",
+        ref: "transaction",
         required: [true, "ledger must be associated with a transaction"],
         index: true,
         immutable: true

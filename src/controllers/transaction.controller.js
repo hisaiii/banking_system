@@ -78,7 +78,7 @@ const transactionController = async (req, res) => {
         transaction: transaction._id,
         type: "CREDIT"
       }
-    ], { session,ordered: true })
+    ], { session,ordered: true })   //ordered true here mean ki if debit fails vo wahi se rollback akr dega 
 
     transaction.status = "COMPLETED"
     await transaction.save({ session })
@@ -175,7 +175,7 @@ const createInitialFundsTransaction = async (req, res) => {
         transaction: transaction._id,
         type: "CREDIT"
       }
-    ], { session })
+    ], { session,ordered: true })
 
     transaction.status = "COMPLETED"
     await transaction.save({ session })

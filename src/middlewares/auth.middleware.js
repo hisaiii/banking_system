@@ -56,7 +56,7 @@ const systemUserMiddleware = async (req, res, next) => {
 
             })
         }
-        req.username = user
+        req.user = user
         return next()
 
     } catch (err) {
